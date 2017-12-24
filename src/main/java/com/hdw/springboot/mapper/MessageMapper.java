@@ -11,7 +11,7 @@ import org.apache.ibatis.annotations.Update;
 import java.util.List;
 
 
-
+@Mapper
 public interface MessageMapper {
     @Select("SELECT * FROM message")
     @Results({@Result(property = "nickName", column = "nick_name")
@@ -22,4 +22,8 @@ public interface MessageMapper {
     @Results({@Result(property = "nickName", column = "nick_name")
     })
     Message getOne(int id);
+
+
+    @Insert("INSERT INTO message(id,nick_Name,ip) VALUES(#{id},#{nickName},#{ip})")
+    void insert(Message message);
 }

@@ -11,7 +11,7 @@ import org.apache.log4j.Logger;
  */
 // Spring Boot 应用的标识
 @SpringBootApplication
-@MapperScan("com.hdw.springboot.mapper")
+//@MapperScan("com.hdw.springboot.mapper")
 public class Application {
 
     public static void main(String[] args) {
