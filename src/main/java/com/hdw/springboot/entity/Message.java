@@ -43,4 +43,9 @@ public class Message {
         this.insertTime = insertTime;
     }
 
+    @Override
+    public String toString() {
+        // TODO Auto-generated method stub
+        return "userName:" + this.nickName;
+    }
 }
