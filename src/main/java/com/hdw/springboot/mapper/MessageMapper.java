@@ -17,4 +17,9 @@ public interface MessageMapper {
     @Results({@Result(property = "nickName", column = "nick_name")
     })
     List<Message> getAll();
+
+    @Select("SELECT * FROM message where ID =#{id}")
+    @Results({@Result(property = "nickName", column = "nick_name")
+    })
+    Message getOne(int id);
 }

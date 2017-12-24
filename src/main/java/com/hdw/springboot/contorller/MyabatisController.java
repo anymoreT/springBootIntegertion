@@ -26,6 +26,10 @@ public class MyabatisController {
             return messages;
     }
 
-
+    @RequestMapping("/data/{id}")
+    Message getDateById(@PathVariable("id") int id){
+        Message message =  messageMapper.getOne(id);
+        return message;
+    }
 
 }
