@@ -24,6 +24,6 @@ public interface MessageMapper {
     Message getOne(int id);
 
 
-    @Insert("INSERT INTO message(id,nick_Name,ip) VALUES(#{id},#{nickName},#{ip})")
+    @Insert("INSERT INTO message(id,nick_Name,ip,insert_time) VALUES(#{id},#{nickName},#{ip},#{insertTime})")
     void insert(Message message);
 }
