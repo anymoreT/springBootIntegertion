@@ -8,7 +8,7 @@ import java.util.List;
 
 
 @Mapper
-public interface uploadInfoMapper {
+public interface UploadInfoMapper {
     @Select("SELECT * FROM uploadInfo")
     @Results({@Result(property = "nickName", column = "nick_name")
     })
@@ -20,6 +20,6 @@ public interface uploadInfoMapper {
     Message getOne(int id);
 
 
-    @Insert("INSERT INTO uploadInfo(package,class,method,project_id,project_name) VALUES(#{package},#{class},#{method},#{project_id},#{project_name})")
+    @Insert("INSERT INTO uploadInfo(package,class,method,project_id,project_name) VALUES(#{package_name},#{class_name},#{method_name},#{project_id},#{project_name})")
     void insert(UploadInfo uploadInfo);
 }

@@ -1,7 +1,6 @@
 package com.hdw.springboot.entity;
 
 import java.util.Date;
-import java.io.Serializable;
 
 public class Message {
     private static final long serialVersionUID = 2128346393707857300L;
@@ -47,5 +46,8 @@ public class Message {
     public String toString() {
         // TODO Auto-generated method stub
         return "userName:" + this.nickName;
+    }
+
+    public static class projectInfo {
     }
 }
