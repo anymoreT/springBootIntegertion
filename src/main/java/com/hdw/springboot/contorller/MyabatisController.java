@@ -53,10 +53,10 @@ public class MyabatisController {
      保存被修改的方法
     */
    @RequestMapping(value="updaloadMethodInfo", method = RequestMethod.POST)
-   public void updataMethodInfo(@RequestBody UploadInfo updateinfo_json){
+   public @ResponseBody UploadInfo updataMethodInfo(@RequestBody UploadInfo updateinfo_json){
        logger.info("接收到json数据"+updateinfo_json.toString());
        uploadInfoService.updateData(updateinfo_json);
-
+       return updateinfo_json;
    }
 
 
