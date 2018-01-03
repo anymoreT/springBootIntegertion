@@ -59,5 +59,15 @@ public class MyabatisController {
        return updateinfo_json;
    }
 
+    /*
+    获取数据通过页数
+  */
+    @RequestMapping(value="getUpdateloadInfo", method = RequestMethod.POST)
+    public @ResponseBody List<UploadInfo> getUpdateloadInfo(int currentPage, int pageSize){
+        logger.info("接收到获取数数据");
+        List<UploadInfo> list_info = uploadInfoService.findItemByPage(currentPage, pageSize);
+        return list_info;
+    }
+
 
 }
