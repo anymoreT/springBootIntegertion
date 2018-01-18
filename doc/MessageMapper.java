@@ -27,8 +27,5 @@ public interface MessageMapper {
     @Insert("INSERT INTO message(id,nick_Name,ip,insert_time) VALUES(#{id},#{nickName},#{ip},#{insertTime})")
     void insert(Message message);
 
-    @Mapper
-    interface UploadInfoMapper {
-        public List<UploadInfo> getAll();
-    }
+
 }

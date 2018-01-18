@@ -1,17 +1,17 @@
 package com.hdw.springboot.service.impl;
 
-import com.github.pagehelper.PageHelper;
 import com.hdw.springboot.entity.UploadInfo;
-import com.hdw.springboot.mapper.MessageMapper;
+//import com.hdw.springboot.mapper.MessageMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
-import  com.hdw.springboot.util.PageBean;
+
+import com.hdw.springboot.mapper.UploadInfoMapper;
 
 @Service
 public class UploadInfoServiceImpl {
     @Autowired
-    private com.hdw.springboot.mapper.UploadInfoMapper uploadInfoMapper;
+    private UploadInfoMapper uploadInfoMapper;
 
 
 //    public void updateData(UploadInfo info_json) {

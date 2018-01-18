@@ -2,11 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.hdw.springboot.mapper.UploadInfoMapper" >
     <!-- 这儿定义一个resultMap -->
-    <!--<resultMap type="info" id="infoMap">-->
-        <!--<id property="t_package" column="package_name"/>-->
-        <!--<result property="t_class" column="class_name"/>-->
-        <!--<result property="t_method" column="method_name"/>-->
-        <!--<result property="t_project_id" column="project_id"/>-->
+    <!--<resultMap type="com.hdw.springboot.mapper.UploadInfoMapper" id="uploadInfoMap">-->
+        <!--<id property="project_id" column="project_id"/>-->
+        <!--<result property="class_name" column="class_name"/>-->
+        <!--<result property="method_name" column="method_name"/>-->
+        <!--<result property="package_name" column="package_name"/>-->
     <!--</resultMap>-->
 
     <select id="getAll" resultType="com.hdw.springboot.entity.UploadInfo">

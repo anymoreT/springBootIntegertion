@@ -30,5 +30,5 @@ public interface UploadInfoMapper {
 //    @Select("SELECT count(*) FROM uploadInfo")
 //    @Results({@Result(property = "test", column = "test")})
 //    int countItem();
-     public List<UploadInfo> getAll();
+      List<UploadInfo> getAll();
 }
