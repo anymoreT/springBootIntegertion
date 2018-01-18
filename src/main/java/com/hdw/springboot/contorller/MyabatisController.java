@@ -49,25 +49,34 @@ public class MyabatisController {
         messageMapper.insert(message);
    }
 
-   /*
-     保存被修改的方法
-    */
-   @RequestMapping(value="updaloadMethodInfo", method = RequestMethod.POST)
-   public @ResponseBody UploadInfo updataMethodInfo(@RequestBody UploadInfo updateinfo_json){
-       logger.info("接收到json数据"+updateinfo_json.toString());
-       uploadInfoService.updateData(updateinfo_json);
-       return updateinfo_json;
-   }
+//   /*
+//     保存被修改的方法
+//    */
+//   @RequestMapping(value="updaloadMethodInfo", method = RequestMethod.POST)
+//   public @ResponseBody UploadInfo updataMethodInfo(@RequestBody UploadInfo updateinfo_json){
+//       logger.info("接收到json数据"+updateinfo_json.toString());
+//       uploadInfoService.updateData(updateinfo_json);
+//       return updateinfo_json;
+//   }
 
     /*
-    获取数据通过页数
+   获取所有数据
   */
-    @RequestMapping(value="getUpdateloadInfo", method = RequestMethod.POST)
-    public @ResponseBody List<UploadInfo> getUpdateloadInfo(int currentPage, int pageSize){
-        logger.info("接收到获取数数据");
-        List<UploadInfo> list_info = uploadInfoService.findItemByPage(currentPage, pageSize);
-        return list_info;
+    @RequestMapping(value="getAll", method = RequestMethod.GET)
+    public @ResponseBody List<UploadInfo> getAll(){
+        List<UploadInfo>  uploadInfo_list = uploadInfoService.getAll();
+        return uploadInfo_list;
     }
+
+//    /*
+//    获取数据通过页数
+//  */
+//    @RequestMapping(value="getUpdateloadInfo", method = RequestMethod.POST)
+//    public @ResponseBody List<UploadInfo> getUpdateloadInfo(int currentPage, int pageSize){
+//        logger.info("接收到获取数数据");
+//        List<UploadInfo> list_info = uploadInfoService.findItemByPage(currentPage, pageSize);
+//        return list_info;
+//    }
 
 
 }
