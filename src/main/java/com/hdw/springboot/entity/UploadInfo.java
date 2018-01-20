@@ -58,6 +58,7 @@ public class UploadInfo {
         this.insert_date = insert_date;
     }
 
+    @Override
     public String toString(){
         return "package_name:" + this.package_name + "class_name" + this.class_name;
     }

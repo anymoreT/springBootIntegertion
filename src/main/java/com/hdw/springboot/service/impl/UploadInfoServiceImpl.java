@@ -5,8 +5,10 @@ import com.hdw.springboot.entity.UploadInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
-
+import com.github.pagehelper.PageHelper;
 import com.hdw.springboot.mapper.UploadInfoMapper;
+import com.hdw.springboot.util.PageBean;
+import com.hdw.springboot.util.PageHelperUtil;
 
 @Service
 public class UploadInfoServiceImpl {
@@ -34,6 +36,27 @@ public class UploadInfoServiceImpl {
         return allItems;
 
     }
+
+    public  List<UploadInfo> getItemBySize(int size) {
+        List<UploadInfo> items =  uploadInfoMapper.getItemBySize(size);
+        return items;
+
+    }
+
+    public List<UploadInfo> getItemByIndex(int currentPage, int pageSize) {
+        //设置分页信息，分别是当前页数和每页显示的总记录数【记住：必须在mapper接口中的方法执行之前设置该分页信息】
+        PageHelper.startPage(currentPage, pageSize);
+        List<UploadInfo> allItems = uploadInfoMapper.getAll();        //全部商品
+        int countNums = uploadInfoMapper.countItem();            //总记录数
+        PageBean<UploadInfo> pageData = new PageBean<UploadInfo>(currentPage, pageSize, countNums);
+        pageData.setItems(allItems);
+        return pageData.getItems();
+    }
+
+    public void insertData(UploadInfo info_json) {
+        uploadInfoMapper.insertData(info_json);
+    }
+
 
 
 }

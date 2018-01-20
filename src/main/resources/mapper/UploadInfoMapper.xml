@@ -13,4 +13,16 @@
         select * from uploadInfo
     </select>
 
+    <select id="getItemBySize" resultType="com.hdw.springboot.entity.UploadInfo">
+        select * from uploadInfo limit #{size}
+    </select>
+
+    <select id="countItem" resultType="int">
+        select count(*) from uploadInfo
+    </select>
+
+    <insert id="insertData" >
+        insert into uploadInfo(project_id, method_name, class_name, package_name)  values(#{project_id},#{method_name},#{class_name},#{package_name})
+    </insert>
+
 </mapper>

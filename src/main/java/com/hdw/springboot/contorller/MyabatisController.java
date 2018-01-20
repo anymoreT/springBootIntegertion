@@ -2,13 +2,8 @@ package com.hdw.springboot.contorller;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 //import com.hdw.springboot.mapper.MessageMapper;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestBody;
 import java.util.List;
 import com.hdw.springboot.entity.Message;
 import com.hdw.springboot.entity.UploadInfo;
@@ -21,7 +16,7 @@ public class MyabatisController {
 //    private MessageMapper messageMapper;
     @Autowired
     private UploadInfoServiceImpl  uploadInfoService;
-//    Logger logger =  Logger.getLogger("1");
+    Logger logger =  Logger.getLogger(MyabatisController.class);
 //
 //    @RequestMapping("/data")
 //    List<Message> getDate(){
@@ -62,15 +57,31 @@ public class MyabatisController {
         return uploadInfo_list;
     }
 
-//    /*
-//    获取数据通过页数
-//  */
-//    @RequestMapping(value="getUpdateloadInfo", method = RequestMethod.POST)
-//    public @ResponseBody List<UploadInfo> getUpdateloadInfo(int currentPage, int pageSize){
-//        logger.info("接收到获取数数据");
-//        List<UploadInfo> list_info = uploadInfoService.findItemByPage(currentPage, pageSize);
-//        return list_info;
-//    }
+    /*
+    获取指定的数据条数
+*/
+    @RequestMapping(value="getItemBySize", method = RequestMethod.GET)
+    public @ResponseBody List<UploadInfo> getItemBySize(@RequestParam("size") int size){
+        List<UploadInfo>  uploadInfo_list = uploadInfoService.getItemBySize(size);
+        return uploadInfo_list;
+    }
 
+    /*
+    获取数据通过页数
+  */
+    @RequestMapping(value="getItemByIndex")
+    public @ResponseBody List<UploadInfo> getUpdateloadInfo(@RequestParam int currentPage, @RequestParam int pageSize){
+        logger.info(String.format("获取数据：%d page, %d pagesize",currentPage, pageSize));
+        List<UploadInfo> list_info = uploadInfoService.getItemByIndex(currentPage, pageSize);
+        return list_info;
+    }
+
+    //    //接受json
+    @RequestMapping(value="/insertData", method = RequestMethod.POST)
+    public void insertData(@RequestBody  UploadInfo uploadInfo){
+
+        logger.info("insertData" + uploadInfo.toString());
+        uploadInfoService.insertData(uploadInfo);
+   }
 
 }

@@ -1,10 +1,13 @@
 package com.hdw.springboot.entity;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import java.util.Date;
 
 public class Message {
     private static final long serialVersionUID = 2128346393707857300L;
 
+ //   @JSONField(serialize=false)
     private Integer id;
     private String nickName;
     private String ip;
