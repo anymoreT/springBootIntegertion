@@ -18,6 +18,10 @@ public class configCtroller {
     private UploadInfoServiceImpl uploadInfoService;
     Logger logger =  Logger.getLogger(MyabatisController.class);
 
+    /*
+     显示html值，
+     加入了module
+     */
     @RequestMapping(value="testHtml")
     public String  testHtml( Model model){
         logger.info(String.format("获取数据：%d page, %d pagesize",1, 2));
