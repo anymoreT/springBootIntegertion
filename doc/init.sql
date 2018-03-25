@@ -1,59 +1,45 @@
-/*
-Navicat MySQL Data Transfer
-Source Server         : root
-Source Server Version : 50624
-Source Host           : 127.0.0.1:3306
-Source Database       : springboot
-Target Server Type    : MYSQL
-Target Server Version : 50624
-File Encoding         : 65001
-Date: 2017-03-10 15:33:13
-*/
+/*表结构插入*/
+DROP TABLE IF EXISTS `u_permission`;
+CREATE TABLE `u_permission` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `url` varchar(256) DEFAULT NULL COMMENT 'url地址',
+  `name` varchar(64) DEFAULT NULL COMMENT 'url描述',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 
-SET FOREIGN_KEY_CHECKS=0;
+/*Table structure for table `u_role` */
+DROP TABLE IF EXISTS `u_role`;
+CREATE TABLE `u_role` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `name` varchar(32) DEFAULT NULL COMMENT '角色名称',
+  `type` varchar(10) DEFAULT NULL COMMENT '角色类型',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
-CREATE DATABASE springboot;
-USE springboot;
--- ----------------------------
--- Table structure for custom
--- ----------------------------
-DROP TABLE IF EXISTS `message`;
-CREATE TABLE `message` (
-  `ID` int(50) NOT NULL AUTO_INCREMENT COMMENT 'ID',
-  `NICK_NAME` varchar(50) DEFAULT NULL COMMENT '昵称',
-  `IP` varchar(50) DEFAULT NULL COMMENT 'IP',
-  `INSERT_TIME` datetime DEFAULT NULL COMMENT '提交时间',
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
+/*Table structure for table `u_role_permission` */
+DROP TABLE IF EXISTS `u_role_permission`;
+CREATE TABLE `u_role_permission` (
+  `rid` bigint(20) DEFAULT NULL COMMENT '角色ID',
+  `pid` bigint(20) DEFAULT NULL COMMENT '权限ID'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- ----------------------------
--- Procedure structure for autoInsert
--- ----------------------------
-DROP PROCEDURE IF EXISTS `autoInsert`;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `autoInsert`()
-BEGIN
-	DECLARE
-		i INT DEFAULT 0 ; -- 开始
-	SET autocommit = 0 ; -- 结束
-	WHILE (i < 1000) DO
-		REPLACE INTO message (
-			`ID`,
-			`NICK_NAME`,
-			`IP`,
-			`INSERT_TIME`
-		)
-	VALUE
-		(
-			i,
-			'flyat.cc',
-			'127.0.0.1',
-			NOW()
-		) ;
-	SET i = i + 1 ;
-	END
-	WHILE ;
-	SET autocommit = 1 ; COMMIT ;
-	END
-;;
-DELIMITER ;
+/*Table structure for table `u_user` */
+DROP TABLE IF EXISTS `u_user`;
+CREATE TABLE `u_user` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `nickname` varchar(20) DEFAULT NULL COMMENT '用户昵称',
+  `email` varchar(128) DEFAULT NULL COMMENT '邮箱|登录帐号',
+  `pswd` varchar(32) DEFAULT NULL COMMENT '密码',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `last_login_time` datetime DEFAULT NULL COMMENT '最后登录时间',
+  `status` bigint(1) DEFAULT '1' COMMENT '1:有效，0:禁止登录',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+
+
+/*Table structure for table `u_user_role` */
+DROP TABLE IF EXISTS `u_user_role`;
+CREATE TABLE `u_user_role` (
+  `uid` bigint(20) DEFAULT NULL COMMENT '用户ID',
+  `rid` bigint(20) DEFAULT NULL COMMENT '角色ID'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
