@@ -20,9 +20,8 @@ public class MyabatisController {
     MessageConfiguration messageConfiguration;
 
 
-    /*
-   获取所有数据
-  */
+
+   //获取所有数据+++++++++++++++++++++++++++++++++++++++
     @RequestMapping(value="getAll", method = RequestMethod.GET)
     public @ResponseBody List<UploadInfo> getAll(){
         List<UploadInfo>  uploadInfo_list = uploadInfoService.getAll();

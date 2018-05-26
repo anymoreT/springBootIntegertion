@@ -25,6 +25,7 @@ public class configCtroller {
     private UploadInfoServiceImpl uploadInfoService;
     Logger logger =  Logger.getLogger(MyabatisController.class);
 
+
     @RequestMapping(value="login",method = RequestMethod.GET)
     public String  login( @RequestParam("userid") String userId,
                            @RequestParam("password") String password){
