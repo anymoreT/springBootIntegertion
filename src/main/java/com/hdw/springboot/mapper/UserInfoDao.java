@@ -1,6 +1,6 @@
 package com.hdw.springboot.mapper;
 
-import com.hdw.springboot.entity.UserInfo;
+import com.hdw.springboot.entity.shiro.UserInfo;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper

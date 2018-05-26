@@ -1,7 +1,7 @@
-package com.hdw.springboot.service;
+package com.hdw.springboot.service.shiroService;
 
 
-import com.hdw.springboot.entity.UserInfo;
+import com.hdw.springboot.entity.shiro.UserInfo;
 
 public interface UserInfoService {
     /**通过username查找用户信息;*/

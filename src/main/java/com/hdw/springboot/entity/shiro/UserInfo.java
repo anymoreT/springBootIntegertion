@@ -1,4 +1,6 @@
-package com.hdw.springboot.entity;
+package com.hdw.springboot.entity.shiro;
+import com.hdw.springboot.entity.shiro.SysRole;
+
 import java.io.Serializable;
 import java.util.List;
 

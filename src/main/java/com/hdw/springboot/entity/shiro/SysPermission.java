@@ -1,6 +1,5 @@
-package com.hdw.springboot.entity;
+package com.hdw.springboot.entity.shiro;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 

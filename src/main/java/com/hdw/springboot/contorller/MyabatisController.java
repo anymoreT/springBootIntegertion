@@ -29,6 +29,13 @@ public class MyabatisController {
         return uploadInfo_list;
     }
 
+
+    @RequestMapping(value="hello", method = RequestMethod.GET)
+    public @ResponseBody String hello(){
+
+        return "hello";
+    }
+
     /*
     获取指定的数据条数
 */
