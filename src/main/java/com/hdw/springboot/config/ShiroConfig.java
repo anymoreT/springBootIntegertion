@@ -16,6 +16,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import org.springframework.context.annotation.PropertySource;
 
 /**
  * Created by Administrator on 2017/12/11.
@@ -23,13 +24,13 @@ import java.util.Map;
 @Configuration
 public class ShiroConfig {
 
-    @Value("${spring.redis.shiro.host}")
+    @Value("${redis.shiro.host}")
     private String host;
-    @Value("${spring.redis.shiro.port}")
+    @Value("${redis.shiro.port}")
     private int port;
-    @Value("${spring.redis.shiro.timeout}")
+    @Value("${redis.shiro.timeout}")
     private int timeout;
-    @Value("${spring.redis.shiro.password}")
+    @Value("${redis.shiro.password}")
     private String password;
     Logger logger = Logger.getLogger(ShiroConfig.class);
 
